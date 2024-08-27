@@ -1,0 +1,14 @@
+{% extends 'theApp\base.html' %}
+
+{% block title %}Home - My Blog{% endblock %}
+
+{% block content %}
+    <ul>
+        {% for post in object_list %}
+            <li>
+                <a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a> - {{ post.author }} - {{ post.created_at }}<br/>
+                {{ post.content }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

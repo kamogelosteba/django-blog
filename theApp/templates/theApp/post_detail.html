@@ -1,0 +1,18 @@
+{% extends 'theApp\base.html' %}
+    {% block title %}
+        {{post.title_tag}}
+    {% endblock%}
+    {% block content %}
+        <h1> {{ post.title }}</h1>
+        <small>By: {{ post.author.first_name }}
+        {{ post.author.name_name }}</small><br/>
+        <hr>
+        <br/>
+        {{ post.content }}
+
+        <br/><br/>
+        <a href="{% url 'home' %}"  class="btn btn-secondary" class="button">Back</a>
+        <a href="{% url 'article-detail' post.pk %}/edit"  class="btn btn-primary" class="button">Edit</a>
+        <a href="{% url 'article-detail' post.pk %}/delete"  class="btn btn-danger" class="button">Delete</a>
+
+    {% endblock %}

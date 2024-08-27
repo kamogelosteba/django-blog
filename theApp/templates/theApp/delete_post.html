@@ -1,0 +1,17 @@
+{% extends 'theApp/base.html' %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small><br/>
+    <hr>
+    <br/>
+    {{ post.content }}
+
+    <br/><br/>
+    <a href="{% url 'article-detail' post.pk %}" class="btn btn-secondary button">No</a>
+
+    <form action="{% url 'delete' post.pk %}" method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger button">Yes</button>
+    </form>
+{% endblock %}
